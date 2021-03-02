@@ -3,8 +3,8 @@ import * as bodyParser from 'body-parser';
 import appRouter from './database/routes';
 import { addModel } from './util/database/database';
 import { requestLoggerMiddleware } from './util/request-logger-middleware';
-import CoffeePod from './database/dbmodel/tracking-stream.model';
 import TrackingStream from './database/dbmodel/tracking-stream.model';
+import User from './database/dbmodel/user.model';
 
 const app = express();
 app.use(bodyParser.json());
@@ -16,6 +16,7 @@ app.get('/hello', (req, res, next) => {
 });
 
 addModel(TrackingStream);
+addModel(User);
 export { app }
 app.listen(process.env.PORT || 4040, () => {
   console.log("server started");

@@ -29,6 +29,7 @@ const routes_1 = __importDefault(require("./database/routes"));
 const database_1 = require("./util/database/database");
 const request_logger_middleware_1 = require("./util/request-logger-middleware");
 const tracking_stream_model_1 = __importDefault(require("./database/dbmodel/tracking-stream.model"));
+const user_model_1 = __importDefault(require("./database/dbmodel/user.model"));
 const app = express_1.default();
 exports.app = app;
 app.use(bodyParser.json());
@@ -38,6 +39,7 @@ app.get('/hello', (req, res, next) => {
     res.send('Hello world');
 });
 database_1.addModel(tracking_stream_model_1.default);
+database_1.addModel(user_model_1.default);
 app.listen(process.env.PORT || 4040, () => {
     console.log("server started");
 });
