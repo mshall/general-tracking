@@ -54,7 +54,6 @@ trackingStreamRouter.
 trackingStreamRouter.
     route('/')
     .post(async (request, response, next) => {
-    //const collection = getCollection('todos');
     try {
         let incomingTrackingStream = request.body.trackingStream;
         GeneralUtils_1.default.printInitiateMessage("TrackingStreamController.Add -> Incoming stream", JSON.stringify(incomingTrackingStream));

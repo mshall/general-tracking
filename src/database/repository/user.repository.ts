@@ -76,4 +76,36 @@ export default class UserRepository {
     return user;
   }
 
+  //-----------------------------------------
+  // Find user by username
+  //-----------------------------------------
+  async findUserByUsername(incomingUsername: string): Promise<any> {
+    let user = null;
+    try {
+      GeneralUtils.printInitiateMessage("UserRepository.findUserByUsername", "Start");
+      user = await User.findOne({ where: { username: incomingUsername} });
+      GeneralUtils.printInitiateMessage("UserRepository.findUserByUsername", "Result: "+ JSON.stringify(user));
+      GeneralUtils.printInitiateMessage("UserRepository.findUserByUsername", "End");
+    } catch (error) {
+      console.error(error);
+    }
+    return user;
+  }
+
+  //-----------------------------------------
+  // Find user by username
+  //-----------------------------------------
+  async findUserByEmail(incomingEmail: string): Promise<any> {
+    let user = null;
+    try {
+      GeneralUtils.printInitiateMessage("UserRepository.findUserByEmail", "Start");
+      user = await User.findOne({ where: { email: incomingEmail} });
+      GeneralUtils.printInitiateMessage("UserRepository.findUserByEmail", "Result: "+ JSON.stringify(user));
+      GeneralUtils.printInitiateMessage("UserRepository.findUserByEmail", "End");
+    } catch (error) {
+      console.error(error);
+    }
+    return user;
+  }
+
 }

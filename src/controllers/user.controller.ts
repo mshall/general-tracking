@@ -11,7 +11,7 @@ const userRouter = Router();
 const userRepository: UserRepository = new UserRepository();
 const NAMESPACE = "";
 //-----------------------------------------
-// Find all users
+// Validate
 //-----------------------------------------
 userRouter.
   route('/validate')
@@ -36,6 +36,32 @@ userRouter.
     }
 
   });
+
+  //-----------------------------------------
+// Find all users
+//-----------------------------------------
+userRouter.
+route('/all')
+.get(async (
+  request: express.Request,
+  response: express.Response,
+  next: express.NextFunction) => {
+  try {
+    GeneralUtils.printInitiateMessage(
+      "UserController.findAll -> ", "Start");
+    GeneralUtils.printInitiateMessage(
+      'UserController.findAll -> ', 'Start',
+    );
+    let usersList = await userRepository.findAllUsers();
+    return response.status(200).json(usersList);
+  } catch (error) {
+    console.error(error);
+    GeneralUtils.printInitiateMessage(
+      'UserController.findAllTrackingStreams ', 'End',
+    );
+  }
+
+});
 
 //-----------------------------------------
 // Add a new user
@@ -107,7 +133,7 @@ userRouter.
       let { email, password } = request.body.user;
       GeneralUtils.printInitiateMessage("UserController.login", "Incoming: " + JSON.stringify(request.body.user));
       GeneralUtils.printInitiateMessage("UserController.login", "Incoming: Email: " + email + " | Password: " + password);
-      await userRepository.findUserByEmailAndPassword(email, password)
+      await userRepository.findUserByEmail(email)
         .then((fetchedUser) => {
           GeneralUtils.printInitiateMessage("UserController.login", "Fetched User: " + JSON.stringify(fetchedUser));
           if (fetchedUser == null || !fetchedUser) {
@@ -159,6 +185,7 @@ userRouter.
     }
 
   });
+
 
 export { userRouter as userRouter }
 

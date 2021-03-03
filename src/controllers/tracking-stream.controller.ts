@@ -72,7 +72,6 @@ trackingStreamRouter.
     request: express.Request,
     response: express.Response,
     next: express.NextFunction) => {
-    //const collection = getCollection('todos');
     try {
       let incomingTrackingStream = request.body.trackingStream;
       GeneralUtils.printInitiateMessage(

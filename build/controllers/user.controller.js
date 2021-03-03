@@ -15,7 +15,7 @@ exports.userRouter = userRouter;
 const userRepository = new user_repository_1.default();
 const NAMESPACE = "";
 //-----------------------------------------
-// Find all users
+// Validate
 //-----------------------------------------
 userRouter.
     route('/validate')
@@ -26,6 +26,23 @@ userRouter.
         return response.status(200).json({
             message: 'Token(s) validated'
         });
+    }
+    catch (error) {
+        console.error(error);
+        GeneralUtils_1.default.printInitiateMessage('UserController.findAllTrackingStreams ', 'End');
+    }
+});
+//-----------------------------------------
+// Find all users
+//-----------------------------------------
+userRouter.
+    route('/all')
+    .get(async (request, response, next) => {
+    try {
+        GeneralUtils_1.default.printInitiateMessage("UserController.findAll -> ", "Start");
+        GeneralUtils_1.default.printInitiateMessage('UserController.findAll -> ', 'Start');
+        let usersList = await userRepository.findAllUsers();
+        return response.status(200).json(usersList);
     }
     catch (error) {
         console.error(error);
@@ -87,7 +104,7 @@ userRouter.
         let { email, password } = request.body.user;
         GeneralUtils_1.default.printInitiateMessage("UserController.login", "Incoming: " + JSON.stringify(request.body.user));
         GeneralUtils_1.default.printInitiateMessage("UserController.login", "Incoming: Email: " + email + " | Password: " + password);
-        await userRepository.findUserByEmailAndPassword(email, password)
+        await userRepository.findUserByEmail(email)
             .then((fetchedUser) => {
             GeneralUtils_1.default.printInitiateMessage("UserController.login", "Fetched User: " + JSON.stringify(fetchedUser));
             if (fetchedUser == null || !fetchedUser) {

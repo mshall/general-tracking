@@ -72,5 +72,37 @@ class UserRepository {
         }
         return user;
     }
+    //-----------------------------------------
+    // Find user by username
+    //-----------------------------------------
+    async findUserByUsername(incomingUsername) {
+        let user = null;
+        try {
+            GeneralUtils_1.default.printInitiateMessage("UserRepository.findUserByUsername", "Start");
+            user = await user_model_1.default.findOne({ where: { username: incomingUsername } });
+            GeneralUtils_1.default.printInitiateMessage("UserRepository.findUserByUsername", "Result: " + JSON.stringify(user));
+            GeneralUtils_1.default.printInitiateMessage("UserRepository.findUserByUsername", "End");
+        }
+        catch (error) {
+            console.error(error);
+        }
+        return user;
+    }
+    //-----------------------------------------
+    // Find user by username
+    //-----------------------------------------
+    async findUserByEmail(incomingEmail) {
+        let user = null;
+        try {
+            GeneralUtils_1.default.printInitiateMessage("UserRepository.findUserByEmail", "Start");
+            user = await user_model_1.default.findOne({ where: { email: incomingEmail } });
+            GeneralUtils_1.default.printInitiateMessage("UserRepository.findUserByEmail", "Result: " + JSON.stringify(user));
+            GeneralUtils_1.default.printInitiateMessage("UserRepository.findUserByEmail", "End");
+        }
+        catch (error) {
+            console.error(error);
+        }
+        return user;
+    }
 }
 exports.default = UserRepository;
