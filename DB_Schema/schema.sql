@@ -1,113 +1,39 @@
-/* Coffee machine table */
+CREATE DATABASE `fleet`; /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
+-- fleet.trackingstream definition
 
+CREATE TABLE `trackingstream` (
+  `trackingDateTime` datetime NOT NULL,
+  `imei` char(15) NOT NULL,
+  `longitude` float NOT NULL,
+  `latitude` float NOT NULL,
+  `kph` int DEFAULT NULL,
+  `firstEvent` smallint DEFAULT NULL,
+  `secondEvent` smallint DEFAULT NULL,
+  `thirdEvent` smallint DEFAULT NULL,
+  `fourthEvent` smallint DEFAULT NULL,
+  `fifthEvent` smallint DEFAULT NULL,
+  `CreatedAt` datetime DEFAULT NULL,
+  `UpdatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`trackingDateTime`,`imei`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE coffee_machine
-(
-  "Id" varchar NULL,
-  "ProductType" varchar NULL,
-  "WaterLineCompatible" bool NULL,
-  "ProductName" varchar NULL
-);
+-- fleet.users definition
 
+CREATE TABLE `users` (
+  `userId` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `createdAt` datetime DEFAULT NULL,
+  `updatedAt` datetime DEFAULT NULL,
+  PRIMARY KEY (`userId`),
+  UNIQUE KEY `users_UN` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO coffee_machine
-  ("Id","ProductType","WaterLineCompatible","ProductName")
-VALUES
-  ('CM001', 'small', false, 'base model')
-,
-  ('CM002', 'small', false, 'premium model')
-,
-  ('CM003', 'small', true, 'deluxe model')
-,
-  ('CM101', 'large', false, 'base model')
-,
-  ('CM102', 'large', true, 'premium model')
-,
-  ('CM103', 'large', true, 'deluxe model')
-,
-  ('EM001', 'espresso', false, ' base model')
-,
-  ('EM002', 'espresso', false, 'premium model')
-,
-  ('EM003', 'espresso', true, 'deluxe model')
-;
+INSERT INTO fleet.trackingstream (trackingDateTime,imei,longitude,latitude,kph,firstEvent,secondEvent,thirdEvent,fourthEvent,fifthEvent,CreatedAt,UpdatedAt) VALUES
+	 ('1968-11-16 00:00:00','1',1.0,1.0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 
-/******************************
-*
-* Coffee Pod table 
-********************************/
-
-
-CREATE TABLE coffee_pod
-(
-  "Id" varchar NULL,
-  "ProductType" varchar NULL,
-  "CoffeeFlavor" varchar NULL,
-  "PackSize" numeric NULL
-);
-
-
-
-INSERT INTO coffee_pod
-  ("Id","ProductType","CoffeeFlavor","PackSize")
-VALUES
-  ('CP001', 'small', 'vanilla', 1)
-,
-  ('CP003', 'small', 'vanilla', 3)
-,
-  ('CP011', 'small', 'caramel', 1)
-,
-  ('CP013', 'small', 'caramel', 3)
-,
-  ('CP021', 'small', 'psl', 1)
-,
-  ('CP023', 'small', 'psl', 3)
-,
-  ('CP031', 'small', 'mocha', 1)
-,
-  ('CP033', 'small', 'mocha', 3)
-,
-  ('CP041', 'small', 'hazelnut', 1)
-,
-  ('CP043', 'small', 'hazelnut', 3)
-;
-
-INSERT INTO coffee_pod
-  ("Id","ProductType","CoffeeFlavor","PackSize")
-VALUES
-  ('CP101', 'large', 'vanilla', 1)
-,
-  ('CP103', 'large', 'vanilla', 3)
-,
-  ('CP111', 'large', 'caramel', 1)
-,
-  ('CP113', 'large', 'caramel', 3)
-,
-  ('CP121', 'large', 'psl', 1)
-,
-  ('CP123', 'large', 'psl', 1)
-,
-  ('CP131', 'large', 'mocha', 1)
-,
-  ('CP133', 'large', 'mocha', 3)
-,
-  ('CP141', 'large', 'hazelnut', 1)
-,
-  ('CP143', 'large', 'hazelnut', 3)
-;
-INSERT INTO coffee_pod
-  ("Id","ProductType","CoffeeFlavor","PackSize")
-VALUES
-  ('EP003', 'espresso', 'vanilla', 3)
-,
-  ('EP005', 'espresso', 'vanilla', 5)
-,
-  ('EP007', ' espresso', 'vanilla', 7)
-,
-  ('EP013', 'espresso', 'caramel', 3)
-,
-  ('EP015', ' espresso', 'caramel', 5)
-,
-  ('EP017', 'espresso', 'caramel', 7)
-;
+   INSERT INTO fleet.users (userId,username,email,password,createdAt,updatedAt) VALUES
+	 ('2e651bec-99bd-49a9-b1c2-ac722b9f2276','mohamed','mohamed@gmail.com','$2a$10$7bhd.PkYwaRtSCCO.RAP9edx2EYHvXYo8O3mI1lUvj0zci6EXRJdi','2021-03-03 00:55:16','2021-03-03 00:55:16'),
+	 ('87d38b68-21be-40b6-8991-3680ff9b2147','shall','shall@gmail.com','$2a$10$1Gu93MLqBNdqcecNpHX8tuwt3IE1S9jpprHIfgo5cD7x58pGFN1Sm','2021-03-03 00:55:11','2021-03-03 00:55:11');

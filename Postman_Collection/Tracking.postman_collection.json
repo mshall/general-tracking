@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "10ababcc-fe2a-40e7-baca-4313301bd89d",
+		"name": "Tracking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch all streams",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1vaGFtZWQiLCJpYXQiOjE2MTQ3NzMyOTQsImV4cCI6MzIyOTkwNjU4OCwiaXNzIjoiY29vbElzc3VlciJ9.vgGVbUSqV0mO5S-rsM1E-WO6g_DjRHSNPuITS_u5Epg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:4040/api/tracking-stream",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"tracking-stream"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new stream",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"trackingStream\": {\n        \"trackingDateTime\": \"1968-11-16T00:00:00\",\n        \"imei\": \"1\",\n        \"longitude\": 1,\n        \"latitude\": 1\n\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4040/api/tracking-stream",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"tracking-stream"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"username\": \"mohamed\",\n        \"email\": \"mohamed@gmail.com\",\n        \"password\": \"hi\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4040/api/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user\": {\n        \"username\": \"mohamed\",\n        \"email\": \"mohamed@gmail.com\",\n        \"password\": \"hi\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4040/api/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4040",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
