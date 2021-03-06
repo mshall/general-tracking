@@ -24,6 +24,8 @@ class TreackingStreamRepository {
         (incomingTrackingStream.thirdEvent) ? trackingStream.thirdEvent = incomingTrackingStream.thirdEvent : 0;
         (incomingTrackingStream.fourthEvent) ? trackingStream.fourthEvent = incomingTrackingStream.fourthEvent : 0;
         (incomingTrackingStream.fifthEvent) ? trackingStream.fifthEvent = incomingTrackingStream.fifthEvent : 0;
+        trackingStream.CreatedAt = new Date();
+        trackingStream.UpdatedAt = new Date();
         try {
             const savedStream = await trackingStream.save();
             GeneralUtils_1.default.printInitiateMessage('TreackingStreamRepository.addNewTrackingStream', 'Result: '

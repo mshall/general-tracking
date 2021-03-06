@@ -13,12 +13,16 @@ const extractJWT = (req, res, next) => {
     if (token) {
         jsonwebtoken_1.default.verify(token, config_1.default.token.secret, (error, decoded) => {
             if (error) {
+                GeneralUtils_1.default.printErrorMessage("extractJWT", "UnAuthorized!");
+                GeneralUtils_1.default.printInitiateMessage("extractJWT", "End");
                 return res.status(404).json({
                     message: error,
                     error
                 });
             }
             else {
+                GeneralUtils_1.default.printInitiateMessage("extractJWT", "Authorized");
+                GeneralUtils_1.default.printInitiateMessage("extractJWT", "End");
                 res.locals.jwt = decoded;
                 next();
             }
