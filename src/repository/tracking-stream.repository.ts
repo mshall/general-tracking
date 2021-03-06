@@ -1,6 +1,6 @@
 import { DATE } from "sequelize/types";
-import GeneralUtils from "../../util/GeneralUtils";
-import TrackingStream from "../dbmodel/tracking-stream.model";
+import TrackingStream from "../database/dbmodel/tracking-stream.model";
+import GeneralUtils from "../util/GeneralUtils";
 
 
 export default class TreackingStreamRepository {

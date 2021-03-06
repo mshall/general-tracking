@@ -5,10 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRouter = void 0;
 const express_1 = require("express");
-const GeneralUtils_1 = __importDefault(require("../util/GeneralUtils"));
-const user_repository_1 = __importDefault(require("../database/repository/user.repository"));
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const user_model_1 = __importDefault(require("../database/dbmodel/user.model"));
+const user_repository_1 = __importDefault(require("../repository/user.repository"));
+const GeneralUtils_1 = __importDefault(require("../util/GeneralUtils"));
 const signJWT_1 = __importDefault(require("../util/signJWT"));
 const userRouter = express_1.Router();
 exports.userRouter = userRouter;

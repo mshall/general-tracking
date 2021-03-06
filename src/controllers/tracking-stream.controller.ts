@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { Router } from 'express';
-import GeneralUtils from "../util/GeneralUtils";
-import TreackingStreamRepository from '../database/repository/tracking-stream.repository';
+import TreackingStreamRepository from '../repository/tracking-stream.repository';
+import GeneralUtils from '../util/GeneralUtils';
 
 const trackingStreamRouter = Router();
 const trackingStreamRepository: TreackingStreamRepository = new TreackingStreamRepository();

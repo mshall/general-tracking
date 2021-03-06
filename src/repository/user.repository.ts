@@ -1,5 +1,6 @@
-import GeneralUtils from "../../util/GeneralUtils";
-import User from "../dbmodel/user.model";
+import User from "../database/dbmodel/user.model";
+import GeneralUtils from "../util/GeneralUtils";
+
 
 
 export default class UserRepository {

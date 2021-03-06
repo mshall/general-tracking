@@ -1,10 +1,9 @@
 import * as express from 'express';
 import { Router } from 'express';
-import GeneralUtils from "../util/GeneralUtils";
-import TreackingStreamRepository from '../database/repository/tracking-stream.repository';
-import UserRepository from '../database/repository/user.repository';
 import bcryptjs from 'bcryptjs';
 import User from '../database/dbmodel/user.model';
+import UserRepository from '../repository/user.repository';
+import GeneralUtils from '../util/GeneralUtils';
 import signJWT from '../util/signJWT';
 
 const userRouter = Router();

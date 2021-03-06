@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.treackingStreamRouter = void 0;
 const express_1 = require("express");
+const tracking_stream_repository_1 = __importDefault(require("../repository/tracking-stream.repository"));
 const GeneralUtils_1 = __importDefault(require("../util/GeneralUtils"));
-const tracking_stream_repository_1 = __importDefault(require("../database/repository/tracking-stream.repository"));
 const trackingStreamRouter = express_1.Router();
 exports.treackingStreamRouter = trackingStreamRouter;
 const trackingStreamRepository = new tracking_stream_repository_1.default();

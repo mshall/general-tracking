@@ -1,10 +1,10 @@
 import express from 'express';
 import * as bodyParser from 'body-parser';
-import appRouter from './database/routes';
 import { addModel } from './util/database/database';
 import { requestLoggerMiddleware } from './util/request-logger-middleware';
 import TrackingStream from './database/dbmodel/tracking-stream.model';
 import User from './database/dbmodel/user.model';
+import appRouter from './routes';
 
 const app = express();
 app.use(bodyParser.json());
