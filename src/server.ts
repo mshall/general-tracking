@@ -5,10 +5,12 @@ import { requestLoggerMiddleware } from './util/request-logger-middleware';
 import TrackingStream from './database/dbmodel/tracking-stream.model';
 import User from './database/dbmodel/user.model';
 import appRouter from './routes';
+const cors = require('cors');
 
 const app = express();
 app.use(bodyParser.json());
-app.use(requestLoggerMiddleware)
+app.use(requestLoggerMiddleware);
+app.use(cors());
 app.use(appRouter);
 
 app.get('/hello', (req, res, next) => {
